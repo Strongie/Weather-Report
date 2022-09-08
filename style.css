@@ -1,5 +1,30 @@
-body {
+* {
+    box-sizing: border-box;
+  }
 
-    background-color: blue; 
+  body {
+    font-family: Arial;
+    margin: 500;
+  }
 
-} 
+  #header {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgb(27, 27, 167);
+    color: white;
+  }
+
+  #searchform {
+    padding: 10px;
+    width: 350px;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    
+  }
+
+  
+  
