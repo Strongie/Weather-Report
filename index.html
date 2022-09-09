@@ -12,19 +12,31 @@
     <header id ="header">
         <h1>Weather Dashboard</h1>
     </header>
-    <form id="searchform">
-        <h2><strong>Search for a city:</strong> </h2>
-        <label id ="searchtitle" for="cityname"></label><br>
-        <input type="text" id="cityname" name="cityname" placeholder="enter name here"><br><br>
-        <button type="button" class="btn btn-primary">Search Button</button>
-      </form>
+    <div class = "searchpage">
+        <form id="searchform">
+            <h2><strong>Search for a city:</strong> </h2>
+            <label id ="searchtitle" for="cityname"></label><br>
+            <input type="text" id="cityname" name="cityname" placeholder="enter name here"><br><br>
+            <button type="button" class="btn btn-primary">Search Button</button>
+        </form>
+        <section id="cityresult">
+            <p> results to show up here</p>
 
+        </section>
+    </div>
+    <div class="save buttons">this is where the buttons will save</div>  
+
+
+
+
+       
 
     
 
 
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="script.js"></script>
 
 </body>
