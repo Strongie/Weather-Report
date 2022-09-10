@@ -1,10 +1,9 @@
 
-
+console.log('https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=d7e855042494c9af3ade96d7ae371609')
 //variables
 //var searchButton = document.querySelector("searchbutton")
 var APIkey = "d7e855042494c9af3ade96d7ae371609"
-var cityname;
-
+var cityname = document.getElementById('cityname');
 
 //event when the submit button is pressed
 //fetch the api data
@@ -13,24 +12,24 @@ var cityname;
 var searchButton = document.getElementById('searchbutton');
 
 function getApi() {
-   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityname + "&appid=" + "APIkey";
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityname.value + "&appid=d7e855042494c9af3ade96d7ae371609";
 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
- //       var temp = document.getElementById("temperature").textContent = response;
-   //     var wind = document.getElementById("wind-speed");
-  //      var humidity = document.getElementById("humidity");
- //       var uv = document.getElementById("uv");
+    .then(function (response) {
+       var temp = document.getElementById("temperature").innerHTML = response.data.main.temp;
+       var wind = document.getElementById("wind-speed").innerHTML = response.data.main.wind.speed;
+       var humidity = document.getElementById("humidity").innerHTML = response.data.main.wind.humidity;
+ //    var uv = document.getElementById("uv");
 
 
-      for (var i = 0; i < data.length; i++) {
-      var listItem = document.createElement("button");
-        listItem.textContent = data[i].html_url;
-        repoList.appendChild(listItem);
-      }
+ //     for (var i = 0; i < data.length; i++) {
+ //     var listItem = document.createElement("button");
+ //       listItem.textContent = data[i].html_url;
+ //       repoList.appendChild(listItem);
+ //     }
     });
 }
 
