@@ -1,10 +1,10 @@
 
 console.log('https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=d7e855042494c9af3ade96d7ae371609')
 //variables
-//var searchButton = document.querySelector("searchbutton")
+var searchButton = document.querySelector("searchbutton")
 var APIkey = "d7e855042494c9af3ade96d7ae371609"
-var cityname = document.getElementById('cityname');
-
+//var cityname = document.getElementById('cityname');
+var chosencity = document.getElementById("cityname");
 //event when the submit button is pressed
 //fetch the api data
 
@@ -12,26 +12,30 @@ var cityname = document.getElementById('cityname');
 var searchButton = document.getElementById('searchbutton');
 
 function getApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityname.value + "&appid=d7e855042494c9af3ade96d7ae371609";
+   
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + chosencity.value + "&appid=d7e855042494c9af3ade96d7ae371609";
+     
+        fetch(requestUrl)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data)
+           })
+        };
+            
+         
+      
 
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-       var temp = document.getElementById("temperature").innerHTML = response.data.main.temp;
-       var wind = document.getElementById("wind-speed").innerHTML = response.data.main.wind.speed;
-       var humidity = document.getElementById("humidity").innerHTML = response.data.main.wind.humidity;
+    // for (var i = 0; i < data.length; i++) {
+   //     var temp = document.getElementById("temperature");
+      //  var wind = document.getElementById("wind-speed").innerHTML = data.main.wind.speed;
+       // var humidity = document.getElementById("humidity").innerHTML = data.main.wind.humidity;
  //    var uv = document.getElementById("uv");
-
-
- //     for (var i = 0; i < data.length; i++) {
- //     var listItem = document.createElement("button");
- //       listItem.textContent = data[i].html_url;
- //       repoList.appendChild(listItem);
- //     }
-    });
-}
+   //     temp.textContent = "Temperature:" + data[i].temp;
+     //    } });
+ 
+    
 
 //searchButton.addEventListener('click', getApi);
 
@@ -50,19 +54,19 @@ function placesearchcity () {
 //save the search city to local storage
 //var saveButtonEL1 = document.querySelector('#saveBtn1');
  function storeActivity1() {
-    var chosencity = document.getElementById("cityname").value;
+var chosencity = document.getElementById("cityname").value;
  localStorage.setItem("cityame", chosencity);
  };
  
- searchbutton.onclick = () => {
+ searchButton.onclick = () => {
  storeActivity1();
  placesearchcity();
  getApi();
- }
+ };
 
 //retreive city from local storage
 
-function reload() {
-    var x = localStorage.getItem("cityname");
-    document.getElementById("cityname").innerHTML = x;
-    }
+//function reload() {
+ //   var x = localStorage.getItem("cityname");
+ //   document.getElementById("cityname").innerHTML = x;
+//};
