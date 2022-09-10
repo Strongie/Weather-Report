@@ -3,7 +3,7 @@
 //variables
 //var searchButton = document.querySelector("searchbutton")
 var APIkey = "d7e855042494c9af3ade96d7ae371609"
-var city;
+var cityname;
 
 
 //event when the submit button is pressed
@@ -13,24 +13,24 @@ var city;
 var searchButton = document.getElementById('searchbutton');
 
 function getApi() {
-   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "&appid=" + APIkey;
+   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityname + "&appid=" + "APIkey";
 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-        var temp = document.getElementById("temperature").textContent = response;
-        var wind = document.getElementById("wind-speed");
-        var humidity = document.getElementById("humidity");
-        var uv = document.getElementById("uv");
+ //       var temp = document.getElementById("temperature").textContent = response;
+   //     var wind = document.getElementById("wind-speed");
+  //      var humidity = document.getElementById("humidity");
+ //       var uv = document.getElementById("uv");
 
 
- //     for (var i = 0; i < data.length; i++) {
- //     var listItem = document.createElement("button");
- //       listItem.textContent = data[i].html_url;
- //       repoList.appendChild(listItem);
- //     }
+      for (var i = 0; i < data.length; i++) {
+      var listItem = document.createElement("button");
+        listItem.textContent = data[i].html_url;
+        repoList.appendChild(listItem);
+      }
     });
 }
 
@@ -51,8 +51,8 @@ function placesearchcity () {
 //save the search city to local storage
 //var saveButtonEL1 = document.querySelector('#saveBtn1');
  function storeActivity1() {
-    var storecityname = document.getElementById("cityname").value;
- localStorage.setItem("cityame", cityname);
+    var chosencity = document.getElementById("cityname").value;
+ localStorage.setItem("cityame", chosencity);
  };
  
  searchbutton.onclick = () => {
