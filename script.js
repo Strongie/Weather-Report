@@ -32,10 +32,11 @@ function getApi() {
 //city button becomes visible when text inserted
 
 function placesearchcity () {
+    const todaysdate = new Date();
     var placesearchcity = document.getElementById("cityname").value;
-    document.getElementById("searchedcity").innerHTML = placesearchcity
+    document.getElementById("searchedcity").innerHTML = placesearchcity;
+    document.getElementById("todaysdate").textContent = todaysdate ;
     
-
 };
 
 //save the search city to local storage
