@@ -21,18 +21,21 @@ function getApi() {
           })
           .then(function (data) {
             console.log(data)
+            
+        var temp = document.getElementById("temperature");
+        var wind = document.getElementById("wind-speed");
+        var humidity = document.getElementById("humidity");
+       //    var uv = document.getElementById("uv");
+        temp.innerHTML = "Temperature:" + data[i].temp;
+
            })
         };
             
          
       
 
-    // for (var i = 0; i < data.length; i++) {
-   //     var temp = document.getElementById("temperature");
-      //  var wind = document.getElementById("wind-speed").innerHTML = data.main.wind.speed;
-       // var humidity = document.getElementById("humidity").innerHTML = data.main.wind.humidity;
- //    var uv = document.getElementById("uv");
-   //     temp.textContent = "Temperature:" + data[i].temp;
+
+   //     
      //    } });
  
     
