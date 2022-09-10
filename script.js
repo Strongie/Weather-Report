@@ -2,26 +2,35 @@
 
 //variables
 //var searchButton = document.querySelector("searchbutton")
+var APIkey = "d7e855042494c9af3ade96d7ae371609"
+var city;
+
 
 //event when the submit button is pressed
 //fetch the api data
 
-var repoList = document.querySelector('ul');
+// var repoList = document.querySelector('ul');
 var searchButton = document.getElementById('searchbutton');
 
 function getApi() {
-   var requestUrl = 'https://api.github.com/users/octocat/repos';
+   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "&appid=" + APIkey;
 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement("button");
-        listItem.textContent = data[i].html_url;
-        repoList.appendChild(listItem);
-      }
+        var temp = document.getElementById("temperature").textContent = response;
+        var wind = document.getElementById("wind-speed");
+        var humidity = document.getElementById("humidity");
+        var uv = document.getElementById("uv");
+
+
+ //     for (var i = 0; i < data.length; i++) {
+ //     var listItem = document.createElement("button");
+ //       listItem.textContent = data[i].html_url;
+ //       repoList.appendChild(listItem);
+ //     }
     });
 }
 
@@ -42,7 +51,7 @@ function placesearchcity () {
 //save the search city to local storage
 //var saveButtonEL1 = document.querySelector('#saveBtn1');
  function storeActivity1() {
-    var cityname = document.getElementById("cityname").value;
+    var storecityname = document.getElementById("cityname").value;
  localStorage.setItem("cityame", cityname);
  };
  
