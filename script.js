@@ -22,11 +22,14 @@ function getApi() {
           .then(function (data) {
             console.log(data)
             
-        var temp = document.getElementById("temperature");
-        var wind = document.getElementById("wind-speed");
-        var humidity = document.getElementById("humidity");
+        var temp = main.temp
+        document.getElementById("temperature").innerHTML = "Temperature:" + temp;
+
+
+       // var wind = document.getElementById("wind-speed");
+       // var humidity = document.getElementById("humidity");
        //    var uv = document.getElementById("uv");
-        temp.innerHTML = "Temperature:" + data[i].temp;
+       // temp.innerHTML = "Temperature:" + data[i].temp;
 
            })
         };
@@ -35,10 +38,7 @@ function getApi() {
       
 
 
-   //     
-     //    } });
- 
-    
+      
 
 //searchButton.addEventListener('click', getApi);
 
@@ -69,7 +69,7 @@ var chosencity = document.getElementById("cityname").value;
 
 //retreive city from local storage
 
-//function reload() {
- //   var x = localStorage.getItem("cityname");
- //   document.getElementById("cityname").innerHTML = x;
-//};
+function reload() {
+var x = localStorage.getItem("cityname");
+document.getElementById("cityname").innerHTML = x;
+};
