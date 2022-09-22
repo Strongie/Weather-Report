@@ -5,7 +5,7 @@ var searchButton = document.querySelector("searchbutton")
 var APIkey = "d7e855042494c9af3ade96d7ae371609"
 var chosencity = document.getElementById("cityname");
 var searchButton = document.getElementById('searchbutton');
-
+var weatherInfo = []
 //fetch the api data
 
 function getApi() {
@@ -17,14 +17,20 @@ function getApi() {
             return response.json();
           })
           .then(function (data) {
-            console.log(data)
+              weatherInfo.push(data)
+
+         // });
+       //       console.log(weatherInfo);
+              
+            //      }
+            //  console.log(data);
             
         var temp = data.main.temp
         document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
         var windSpeed = data.wind.speed
         document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
         var humidity = data.main.humidity
-        console.log(humidity);
+      //  console.log(humidity);
         document.querySelector("#humidity").innerHTML = "Humidity:  " + humidity;  
           })};        
 
@@ -36,7 +42,8 @@ function weatherForcaste (){
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+  //  console.log(data);
+  
     // Day 1 forcaste
     var date = data.list[0].dt_txt
     document.querySelector("#forcasteday1").innerHTML = "Date:   " + date;
@@ -82,8 +89,9 @@ function weatherForcaste (){
     document.querySelector("#forcasteWindSpeed5").innerHTML = "Wind Speed:  " + forcasteWindSpeed5;
     var forcasteHumidity5 = data.list[32].main.humidity;
     document.querySelector("#forcasteHumidity5").innerHTML = "Wind Speed:  " + forcasteHumidity5;
-}
-)};
+});
+
+};
 
 
 
@@ -93,10 +101,11 @@ function weatherForcaste (){
 function savedCities (){
   var btn = document.createElement("button");
   btn.setAttribute('id', "searchedCity");
+  btn.setAttribute("class", "searchedCity");
   
 //  var searchCity = document.getElementById("cityname").value;
 //  var text = document.createTextNode(searchCity);
-  document.appendChild(btn);
+ // document.appendChild(btn);
  // document.getElementById("savedFirstCity").appendChild(btn) ;
   
 };
@@ -116,16 +125,27 @@ function placesearchcity () {
 // function listCity (){
 //   var listedCity = document.getElementById("cityname").value;
   
-
-
-
-
 //save the search city to local storage
-function storeActivity1() {
-var chosencity = document.getElementById("cityname").value;
-localStorage.setItem("cityame", chosencity);
- };
- 
+function storeActivity1(weather) {
+
+  var storedWeatherInfo = localStorage.getItem('storedWeatherData');
+
+  if (storedWeatherInfo && storedWeatherInfo != null) {
+    var weatherData = JSON.parse(storedWeatherInfo);
+    weatherData.push(weather);
+    console.log(weatherData);
+    localStorage.setItem('storedWeatherInfo', weatherData);
+    localStorage.setItem('storedWeatherInfo', JSON.stringify(weatherData));
+  }
+  else {
+    localStorage.setItem('storedWeatherInfo', JSON.stringify([weather]));
+  };
+
+  };
+
+
+
+
  searchButton.onclick = () => {
  storeActivity1();
  placesearchcity();
