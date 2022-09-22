@@ -40,15 +40,16 @@ function weatherForcaste (){
   .then(function (data) {
     console.log(data);
     
-    var temp = data.main.temp
-    document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
-    var windSpeed = data.wind.speed
-    document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
-    var temp = data.main.temp
-    document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
-    var windSpeed = data.wind.speed
-    document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
-})};
+    // var temp = data.main.temp
+    // document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
+    // var windSpeed = data.wind.speed
+    // document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
+    // var temp = data.main.temp
+    // document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
+    // var windSpeed = data.wind.speed
+    // document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
+}
+)};
 
 
 //searchButton.addEventListener('click', getApi);
@@ -62,14 +63,20 @@ function placesearchcity () {
     var placesearchcity = document.getElementById("cityname").value;
     document.getElementById("searchedcity").innerHTML = placesearchcity;
     document.getElementById("todaysdate").textContent = todaysdate ;
-    
+    document.getElementById("savedFirstCity").textContent = placesearchcity;
 };
 
+// function listCity (){
+//   var listedCity = document.getElementById("cityname").value;
+  
+
+
+
+
 //save the search city to local storage
-//var saveButtonEL1 = document.querySelector('#saveBtn1');
- function storeActivity1() {
+function storeActivity1() {
 var chosencity = document.getElementById("cityname").value;
- localStorage.setItem("cityame", chosencity);
+localStorage.setItem("cityame", chosencity);
  };
  
  searchButton.onclick = () => {
@@ -77,6 +84,7 @@ var chosencity = document.getElementById("cityname").value;
  placesearchcity();
  getApi();
  weatherForcaste();
+//  listCity()
  };
 
 //retreive city from local storage
