@@ -19,12 +19,7 @@ function getApi() {
           .then(function (data) {
               weatherInfo.push(data)
 
-         // });
-       //       console.log(weatherInfo);
-              
-            //      }
-            //  console.log(data);
-            
+               
         var temp = data.main.temp
         document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
         var windSpeed = data.wind.speed
@@ -102,10 +97,11 @@ function savedCities (){
   var btn = document.createElement("button");
   btn.setAttribute('id', "searchedCity");
   btn.setAttribute("class", "searchedCity");
+  btn.innerHTML = document.getElementById("cityname").value;
   
 //  var searchCity = document.getElementById("cityname").value;
 //  var text = document.createTextNode(searchCity);
- // document.appendChild(btn);
+ document.appendChild(btn);
  // document.getElementById("savedFirstCity").appendChild(btn) ;
   
 };
@@ -128,14 +124,14 @@ function placesearchcity () {
 //save the search city to local storage
 function storeActivity1(weather) {
 
-  var storedWeatherInfo = localStorage.getItem('storedWeatherData');
+  var storedWeatherInfo = localStorage.getItem('storedWeatherInfo');
 
   if (storedWeatherInfo && storedWeatherInfo != null) {
     var weatherData = JSON.parse(storedWeatherInfo);
     weatherData.push(weather);
-    console.log(weatherData);
-    localStorage.setItem('storedWeatherInfo', weatherData);
-    localStorage.setItem('storedWeatherInfo', JSON.stringify(weatherData));
+    
+    localStorage.setItem('storedWeatherInfo', weatherInfo);
+    localStorage.setItem('storedWeatherInfo', JSON.stringify(weatherInfo));
   }
   else {
     localStorage.setItem('storedWeatherInfo', JSON.stringify([weather]));
@@ -157,7 +153,7 @@ function storeActivity1(weather) {
 //retreive city from local storage
 
 function reload() {
-var x = localStorage.getItem("cityname");
+var storedWeatherInfo = localStorage.getItem("storedWeatherInfo");
 document.getElementById("cityname").innerHTML = x;
 };
 
