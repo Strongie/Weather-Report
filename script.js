@@ -4,12 +4,9 @@
 var searchButton = document.querySelector("searchbutton")
 var APIkey = "d7e855042494c9af3ade96d7ae371609"
 var chosencity = document.getElementById("cityname");
-
-//event when the submit button is pressed
-//fetch the api data
-
-// var repoList = document.querySelector('ul');
 var searchButton = document.getElementById('searchbutton');
+
+//fetch the api data
 
 function getApi() {
    
@@ -28,7 +25,7 @@ function getApi() {
         document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
         var humidity = data.main.humidity
         console.log(humidity);
-          
+        document.querySelector("#humidity").innerHTML = "Humidity:  " + humidity;  
           })};        
 
 function weatherForcaste (){
@@ -42,22 +39,19 @@ function weatherForcaste (){
     console.log(data);
     
     var date = data.list[0].dt_txt
-    console.log(date)
     document.querySelector("#forcasteday1").innerHTML = "Date:   " + date;
     var forcasteTemp = data.list[0].main.temp;
-    console.log(forcasteTemp);
-  //  document.querySelector("#forcasteTemperature").innerHTML = "Temperature:  " + forcasteTemp;
+    document.querySelector("#forcasteTemperature").innerHTML = "Temperature:  " + forcasteTemp;
     var forcasteWindSpeed = data.list[0].wind.speed;
-    console.log(forcasteWindSpeed);
-   // document.querySelector("#forcasteWindSpeed").innerHTML = "Wind Speed:  " + forcasteWindSpeed;
+    document.querySelector("#forcasteWindSpeed").innerHTML = "Wind Speed:  " + forcasteWindSpeed;
     var forcasteHumidity = data.list[0].main.humidity;
-    console.log(forcasteHumidity);
-    document.querySelector("#forcateHumidity").innerHTML = "Wind Speed:  " + forcasteHumidity;
+    document.querySelector("#forcasteHumidity").innerHTML = "Wind Speed:  " + forcasteHumidity;
 }
 )};
 
 
-//searchButton.addEventListener('click', getApi);
+
+
 
 // save city search to new button
 
