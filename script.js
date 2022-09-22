@@ -26,7 +26,8 @@ function getApi() {
         document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
         var windSpeed = data.wind.speed
         document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
-  //      var humidity = data.main.humidity
+        var humidity = data.main.humidity
+        console.log(humidity);
           
           })};        
 
@@ -40,14 +41,18 @@ function weatherForcaste (){
   .then(function (data) {
     console.log(data);
     
-    // var temp = data.main.temp
-    // document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
-    // var windSpeed = data.wind.speed
-    // document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
-    // var temp = data.main.temp
-    // document.querySelector("#temperature").innerHTML = "Temperature:  " + temp;
-    // var windSpeed = data.wind.speed
-    // document.querySelector("#wind-speed").innerHTML = "Wind Speed:  " + windSpeed;
+    var date = data.list[0].dt_txt
+    console.log(date)
+    document.querySelector("#forcasteday1").innerHTML = "Date:   " + date;
+    var forcasteTemp = data.list[0].main.temp;
+    console.log(forcasteTemp);
+  //  document.querySelector("#forcasteTemperature").innerHTML = "Temperature:  " + forcasteTemp;
+    var forcasteWindSpeed = data.list[0].wind.speed;
+    console.log(forcasteWindSpeed);
+   // document.querySelector("#forcasteWindSpeed").innerHTML = "Wind Speed:  " + forcasteWindSpeed;
+    var forcasteHumidity = data.list[0].main.humidity;
+    console.log(forcasteHumidity);
+    document.querySelector("#forcateHumidity").innerHTML = "Wind Speed:  " + forcasteHumidity;
 }
 )};
 
