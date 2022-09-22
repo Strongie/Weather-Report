@@ -22,8 +22,8 @@ function getApi() {
           .then(function (data) {
             console.log(data)
             
-        var temp = main.temp
-        document.getElementById("temperature").innerHTML = "Temperature:" + temp;
+        var temp = data.main.temp
+        document.querySelector("#temperature").innerHTML = "Temperature:" + temp;
 
 
        // var wind = document.getElementById("wind-speed");
