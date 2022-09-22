@@ -101,9 +101,9 @@ function savedCities (){
   
 //  var searchCity = document.getElementById("cityname").value;
 //  var text = document.createTextNode(searchCity);
- document.appendChild(btn);
+//btn.Element.append(btn);
  // document.getElementById("savedFirstCity").appendChild(btn) ;
-  
+ document.getElementById("savedFirstCity").appendChild(btn);
 };
 
 
