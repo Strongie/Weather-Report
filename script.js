@@ -90,6 +90,18 @@ function weatherForcaste (){
 
 
 // save city search to new button
+function savedCities (){
+  var btn = document.createElement("button");
+  btn.setAttribute('id', "searchedCity");
+  
+//  var searchCity = document.getElementById("cityname").value;
+//  var text = document.createTextNode(searchCity);
+  document.appendChild(btn);
+ // document.getElementById("savedFirstCity").appendChild(btn) ;
+  
+};
+
+
 
 //city button becomes visible when text inserted
 
@@ -98,7 +110,7 @@ function placesearchcity () {
     var placesearchcity = document.getElementById("cityname").value;
     document.getElementById("searchedcity").innerHTML = placesearchcity;
     document.getElementById("todaysdate").textContent = todaysdate ;
-    document.getElementById("savedFirstCity").textContent = placesearchcity;
+    
 };
 
 // function listCity (){
@@ -119,7 +131,7 @@ localStorage.setItem("cityame", chosencity);
  placesearchcity();
  getApi();
  weatherForcaste();
-//  listCity()
+ savedCities()
  };
 
 //retreive city from local storage
