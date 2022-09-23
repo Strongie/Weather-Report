@@ -155,18 +155,22 @@ function storeActivity1(weather) {
 
 //document.getElementById("searchedCity").addEventListener("click", getApi, weatherForcaste);
 
-//function reload() {
+function reload() {
+    getApi();
+    placesearchcity();
+    weatherForcaste();
+};   
 
-document.getElementById("searchedCity").addEventListener("click", getApi(), weatherForcaste());
-// var searchedCityBtn = 0;
-// var savedCitySearch = [];  
-// var savedCitySearch = localStorage.getItem("storedWeatherInfo");
+document.getElementById("searchedcity").addEventListener("click", reload);
+var searchedCityBtn = 0;
+var savedCitySearch = [];  
+var savedCitySearch = localStorage.getItem("storedWeatherInfo");
 
-// $("#savedFirstCity").html("");
+$("#savedFirstCity").html("");
 
-// if(savedCitySearch && savedCitySearch != null) {
+if(savedCitySearch && savedCitySearch != null) {
 
-// console.log(savedCitySearch.length);
+console.log(savedCitySearch);
 // var arrStoredWeatherInfo = JASON.parse(savedCitySearch);
 // arrStoredWeatherInfo.forEach(element => {
 //   var citySave;
@@ -174,7 +178,7 @@ document.getElementById("searchedCity").addEventListener("click", getApi(), weat
   
 // });
 
-//};
+};
 // document.getElementById("cityname").innerHTML = x;
 // };
 
