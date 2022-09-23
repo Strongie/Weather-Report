@@ -108,17 +108,10 @@ function savedCities (){
   btn.setAttribute('id', "searchedCity");
   btn.setAttribute("class", "searchedCity");
   btn.innerHTML = document.getElementById("cityname").value;
-  
-//  var searchCity = document.getElementById("cityname").value;
-//  var text = document.createTextNode(searchCity);
-//btn.Element.append(btn);
- // document.getElementById("savedFirstCity").appendChild(btn) ;
- document.getElementById("savedFirstCity").appendChild(btn);
+  document.getElementById("savedFirstCity").appendChild(btn);
 };
 
-
-
-//city button becomes visible when text inserted
+//Insert name of city and date in city weather results
 
 function placesearchcity () {
     const todaysdate = new Date();
@@ -128,8 +121,6 @@ function placesearchcity () {
     
 };
 
-// function listCity (){
-//   var listedCity = document.getElementById("cityname").value;
   
 //save the search city to local storage
 function storeActivity1(weather) {
@@ -162,8 +153,28 @@ function storeActivity1(weather) {
 
 //retreive city from local storage
 
-function reload() {
-var storedWeatherInfo = localStorage.getItem("storedWeatherInfo");
-document.getElementById("cityname").innerHTML = x;
-};
+//document.getElementById("searchedCity").addEventListener("click", getApi, weatherForcaste);
+
+//function reload() {
+
+document.getElementById("searchedCity").addEventListener("click", getApi(), weatherForcaste());
+// var searchedCityBtn = 0;
+// var savedCitySearch = [];  
+// var savedCitySearch = localStorage.getItem("storedWeatherInfo");
+
+// $("#savedFirstCity").html("");
+
+// if(savedCitySearch && savedCitySearch != null) {
+
+// console.log(savedCitySearch.length);
+// var arrStoredWeatherInfo = JASON.parse(savedCitySearch);
+// arrStoredWeatherInfo.forEach(element => {
+//   var citySave;
+//   citySave.
+  
+// });
+
+//};
+// document.getElementById("cityname").innerHTML = x;
+// };
 
