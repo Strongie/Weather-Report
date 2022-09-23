@@ -27,5 +27,5 @@ Mock Up
 ![image](https://user-images.githubusercontent.com/109957674/191876710-262de615-4800-4b24-ac52-b20889a7b52c.png)
 
 
-What I learnt
-Fetching dta from 
+What I learnt: 
+Fetching data from third party API's 
